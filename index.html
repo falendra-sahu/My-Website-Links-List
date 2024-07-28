@@ -6,8 +6,8 @@
     <title>My Website Links List</title>
     <style>
         body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            background-color: #f0f2f5;
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f3f4f6;
             margin: 0;
             padding: 0;
             color: #333;
@@ -16,9 +16,10 @@
             max-width: 900px;
             margin: 50px auto;
             background: #fff;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            padding: 20px;
         }
         h1 {
             text-align: center;
@@ -26,62 +27,69 @@
             margin: 0;
             padding: 20px 0;
             font-size: 2.5rem;
-            background-color: #007BFF;
+            background-color: #9c27b0;
             color: white;
+            border-radius: 10px 10px 0 0;
         }
         .search-container {
             display: flex;
             justify-content: center;
+            align-items: center;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: #f3e5f5;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .search-box {
             width: 60%;
             max-width: 500px;
             padding: 12px 20px;
             font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 50px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border: 2px solid #9c27b0;
+            border-radius: 30px;
             outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-box:focus {
+            border-color: #7b1fa2;
         }
         .search-btn, .clear-btn {
             padding: 12px 25px;
             font-size: 16px;
             border: none;
-            border-radius: 50px;
+            border-radius: 30px;
             cursor: pointer;
             margin-left: 10px;
             transition: background-color 0.3s, box-shadow 0.3s;
         }
         .search-btn {
-            background-color: #28a745;
+            background-color: #9c27b0;
             color: #fff;
         }
         .search-btn:hover {
-            background-color: #218838;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #7b1fa2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .clear-btn {
-            background-color: #dc3545;
+            background-color: #f44336;
             color: #fff;
         }
         .clear-btn:hover {
-            background-color: #c82333;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #d32f2f;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .category {
-            margin: 0 20px 20px;
+            margin: 20px 0;
             padding: 20px;
             background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         .category h2 {
-            color: #007BFF;
+            color: #9c27b0;
             font-size: 1.75rem;
             margin-bottom: 15px;
-            border-bottom: 2px solid #007BFF;
+            border-bottom: 2px solid #9c27b0;
             padding-bottom: 5px;
         }
         ul {
@@ -94,17 +102,17 @@
         }
         a {
             text-decoration: none;
-            color: #007BFF;
+            color: #9c27b0;
             font-size: 18px;
             transition: color 0.3s;
         }
         a:hover {
-            color: #0056b3;
+            color: #7b1fa2;
             text-decoration: underline;
         }
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             background: #f1f1f1;
             color: #555;
             font-size: 14px;
@@ -133,7 +141,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>My Website Links List 📋</h1>
+        <h1>My Website Links List</h1>
         
         <div class="search-container">
             <input type="text" id="search" class="search-box" placeholder="Search links..." onkeyup="filterLinks()">
@@ -150,7 +158,6 @@
                 <li><a href="https://falendra-sahu.github.io/TwoDateCalculator/" target="_blank">TwoDateCalculator</a></li>
                 <li><a href="https://falendra-sahu.github.io/RD-Commission-Calculator/" target="_blank">RD-Commission-Calculator</a></li>
                 <li><a href="https://falendra-sahu.github.io/Daily-Amount-Calculator/" target="_blank">Daily-Amount-Calculator</a></li>
-
             </ul>
         </div>
 
