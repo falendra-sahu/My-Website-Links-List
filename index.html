@@ -3,187 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website Links List</title>
+    <title>My Websites</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', Arial, sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f4f7f8;
             color: #333;
         }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
         .container {
-            max-width: 900px;
-            margin: 50px auto;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            max-width: 1200px;
+            margin: 40px auto;
             padding: 20px;
         }
-        h1 {
+
+        .total-links {
             text-align: center;
-            color: #222;
-            margin: 0;
-            padding: 20px 0;
-            font-size: 2.5rem;
-            background-color: #9c27b0;
-            color: white;
-            border-radius: 10px 10px 0 0;
+            margin-bottom: 20px;
         }
+
         .search-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #f3e5f5;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
-        .search-box {
-            width: 60%;
-            max-width: 500px;
-            padding: 12px 20px;
+
+        .search-container input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #007bff;
+            border-radius: 4px;
+            margin-right: 10px;
             font-size: 16px;
-            border: 2px solid #9c27b0;
-            border-radius: 30px;
-            outline: none;
-            transition: border-color 0.3s;
         }
-        .search-box:focus {
-            border-color: #7b1fa2;
-        }
-        .search-btn, .clear-btn {
-            padding: 12px 25px;
-            font-size: 16px;
+
+        .search-container button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
             border: none;
-            border-radius: 30px;
+            border-radius: 4px;
             cursor: pointer;
-            margin-left: 10px;
-            transition: background-color 0.3s, box-shadow 0.3s;
+            font-size: 16px;
         }
-        .search-btn {
-            background-color: #9c27b0;
-            color: #fff;
+
+        .search-container button:hover {
+            background-color: #0056b3;
         }
-        .search-btn:hover {
-            background-color: #7b1fa2;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .clear-btn {
-            background-color: #f44336;
-            color: #fff;
-        }
-        .clear-btn:hover {
-            background-color: #d32f2f;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+
         .category {
-            margin: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            font-weight: 600;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .website-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .website-item {
+            background-color: white;
+            border-radius: 8px;
             padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .category h2 {
-            color: #9c27b0;
-            font-size: 1.75rem;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #9c27b0;
-            padding-bottom: 5px;
+
+        .website-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        ul li {
-            margin-bottom: 15px;
-        }
+
         a {
             text-decoration: none;
-            color: #9c27b0;
-            font-size: 18px;
-            transition: color 0.3s;
+            color: #007bff;
+            font-weight: 600;
         }
+
         a:hover {
-            color: #7b1fa2;
             text-decoration: underline;
         }
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #f1f1f1;
-            color: #555;
-            font-size: 14px;
-            border-top: 1px solid #ddd;
-        }
     </style>
-    <script>
-        function filterLinks() {
-            const searchTerm = document.getElementById('search').value.toLowerCase();
-            const links = document.querySelectorAll('.category ul li');
-            links.forEach(link => {
-                const text = link.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    link.style.display = '';
-                } else {
-                    link.style.display = 'none';
-                }
-            });
-        }
-
-        function clearSearch() {
-            document.getElementById('search').value = '';
-            filterLinks();
-        }
-    </script>
 </head>
 <body>
-    <div class="container">
-        <h1>My Website Links List</h1>
-        
-        <div class="search-container">
-            <input type="text" id="search" class="search-box" placeholder="Search links..." onkeyup="filterLinks()">
-            <button class="search-btn" onclick="filterLinks()">Search</button>
-            <button class="clear-btn" onclick="clearSearch()">Clear</button>
-        </div>
 
-        <div class="category">
-            <h2>Office Use</h2>
-            <ul>
-                <li><a href="https://falendra-sahu.github.io/RD-Plan-Presentation/" target="_blank">RD-Plan-Presentation</a></li>
-                <li><a href="https://falendra-sahu.github.io/Maturity-Date-Calculator/" target="_blank">Maturity-Date-Calculator</a></li>
-                <li><a href="https://falendra-sahu.github.io/NewDateFind/" target="_blank">NewDateFind</a></li>
-                <li><a href="https://falendra-sahu.github.io/TwoDateCalculator/" target="_blank">TwoDateCalculator</a></li>
-                <li><a href="https://falendra-sahu.github.io/RD-Commission-Calculator/" target="_blank">RD-Commission-Calculator</a></li>
-                <li><a href="https://falendra-sahu.github.io/Daily-Amount-Calculator/" target="_blank">Daily-Amount-Calculator</a></li>
-            </ul>
-        </div>
+<header>
+    <h1>My Websites</h1>
+</header>
 
-        <div class="category">
-            <h2>Useful</h2>
-            <ul>
-                <li><a href="https://falendra-sahu.github.io/Test/" target="_blank">FV</a></li>
-                <li><a href="https://falendra-sahu.github.io/My-Website-Links-List/" target="_blank">My-Website-Links-List</a></li>
-                <li><a href="https://falendra-sahu.github.io/HTML-Preview/" target="_blank">HTML-Preview</a></li>
-                <li><a href="https://falendra-sahu.github.io/Windows-Office/" target="_blank">Windows-Office</a></li>
-                <li><a href="https://falendra-sahu.github.io/Notes-App/" target="_blank">Notes-App</a></li>
-                <li><a href="https://falendra-sahu.github.io/Calendar/" target="_blank">Calendar</a></li>
-                <li><a href="https://falendra-sahu.github.io/Google-Drive-Direct-Link-Generator/" target="_blank">Google-Drive-Direct-Link-Generator</a></li>
-                <li><a href="https://falendra-sahu.github.io/Generate-WhatsApp-Link/" target="_blank">Generate-WhatsApp-Link</a></li>
-                <li><a href="https://falendra-sahu.github.io/Password-Generator/" target="_blank">Password-Generator</a></li>
-                <li><a href="https://falendra-sahu.github.io/Age-Calculator/" target="_blank">Age-Calculator</a></li>
-                <li><a href="https://falendra-sahu.github.io/Bulk-Link-Formatter/" target="_blank">Bulk-Link-Formatter</a></li>
-                <li><a href="https://falendra-sahu.github.io/Current-Time/" target="_blank">Current-Time</a></li>
-                <li><a href="https://falendra-sahu.github.io/Stopwatch/" target="_blank">Stopwatch</a></li>
-                <li><a href="https://falendra-sahu.github.io/Countdown-Timer/" target="_blank">Countdown-Timer</a></li>
-            </ul>
+<div class="container">
+    <div class="total-links">
+        Total Links: <span id="totalLinks"></span> | Found: <span id="foundLinks"></span><br>
+        Office Use: <span id="officeCount"></span> | Useful: <span id="usefulCount"></span>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search websites..." onkeyup="filterWebsites()">
+        <button onclick="clearSearch()">Clear</button>
+    </div>
+
+    <div class="category">
+        <h2>Office Use</h2>
+        <div class="website-list" id="officeWebsites">
+            <div class="website-item"><a href="https://falendra-sahu.github.io/RD-Plan-Presentation/">RD Plan Presentation</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Maturity-Date-Calculator/">Maturity Date Calculator</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/NewDateFind/">New Date Finder</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/TwoDateCalculator/">Two Date Calculator</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/RD-Commission-Calculator/">RD Commission Calculator</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Daily-Amount-Calculator/">Daily Amount Calculator</a></div>
         </div>
     </div>
 
-    <footer>
-        Powered by Falendra Sahu ❤️
-    </footer>
+    <div class="category">
+        <h2>Useful</h2>
+        <div class="website-list" id="usefulWebsites">
+            <div class="website-item"><a href="https://github.com/falendra-sahu/">GitHub Profile</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/My-Website-Links-List/">Website Links List</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/HTML-Preview/">HTML Preview</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Windows-Office/">Windows Office</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Notes-App/">Notes App</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Calendar/">Calendar</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Google-Drive-Direct-Link-Generator/">Google Drive Link Generator</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Generate-WhatsApp-Link/">Generate WhatsApp Link</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Password-Generator/">Password Generator</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Age-Calculator/">Age Calculator</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Bulk-Link-Formatter/">Bulk Link Formatter</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Current-Time/">Current Time</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Stopwatch/">Stopwatch</a></div>
+            <div class="website-item"><a href="https://falendra-sahu.github.io/Countdown-Timer/">Countdown Timer</a></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function filterWebsites() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const officeWebsites = document.getElementById('officeWebsites').getElementsByClassName('website-item');
+        const usefulWebsites = document.getElementById('usefulWebsites').getElementsByClassName('website-item');
+
+        let officeFoundCount = 0;
+        let usefulFoundCount = 0;
+        let totalFoundCount = 0;
+
+        // Filter Office Use websites
+        for (let i = 0; i < officeWebsites.length; i++) {
+            const websiteName = officeWebsites[i].textContent.toLowerCase();
+            officeWebsites[i].style.display = websiteName.includes(input) ? 'block' : 'none';
+            if (websiteName.includes(input)) {
+                officeFoundCount++;
+                totalFoundCount++;
+            }
+        }
+
+        // Filter Useful websites
+        for (let i = 0; i < usefulWebsites.length; i++) {
+            const websiteName = usefulWebsites[i].textContent.toLowerCase();
+            usefulWebsites[i].style.display = websiteName.includes(input) ? 'block' : 'none';
+            if (websiteName.includes(input)) {
+                usefulFoundCount++;
+                totalFoundCount++;
+            }
+        }
+
+        // Update found links count
+        document.getElementById('foundLinks').textContent = totalFoundCount;
+        document.getElementById('officeCount').textContent = officeFoundCount;
+        document.getElementById('usefulCount').textContent = usefulFoundCount;
+    }
+
+    function clearSearch() {
+        document.getElementById('searchInput').value = '';
+        filterWebsites();
+    }
+
+    function updateTotalLinks() {
+        const officeWebsites = document.getElementById('officeWebsites').getElementsByClassName('website-item');
+        const usefulWebsites = document.getElementById('usefulWebsites').getElementsByClassName('website-item');
+        const totalLinks = officeWebsites.length + usefulWebsites.length;
+        document.getElementById('totalLinks').textContent = totalLinks;
+        document.getElementById('foundLinks').textContent = totalLinks; // Initially found links are total links
+        document.getElementById('officeCount').textContent = officeWebsites.length;
+        document.getElementById('usefulCount').textContent = usefulWebsites.length;
+    }
+
+    window.onload = function() {
+        updateTotalLinks();
+    };
+</script>
+
 </body>
 </html>
