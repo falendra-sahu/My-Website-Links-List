@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Websites</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -61,10 +62,16 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
+            display: flex;
+            align-items: center;
         }
 
         .search-container button:hover {
             background-color: #ff1a1a; /* Darker red on hover */
+        }
+
+        .search-container button i {
+            margin-right: 5px; /* Space between icon and text */
         }
 
         .category {
@@ -89,7 +96,7 @@
             background-color: #FFFFFF; /* Grid fill colour white */
             border-radius: 8px; /* Border curve */
             padding: 20px; /* Grid padding size */
-            text-align: center; /* Gdrid text center */
+            text-align: center; /* Grid text center */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Grid shadow */
             transition: transform 0.3s, box-shadow 0.3s; /* Grid transition */
             border-left: 5px solid #ffc107; /* Grid left border colour */
@@ -152,7 +159,7 @@
 
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="Search websites..." onkeyup="filterWebsites()">
-        <button onclick="clearSearch()">Clear</button>
+        <button onclick="clearSearch()"><i class="fas fa-times-circle"></i> Clear</button>
     </div>
 
     <div class="category">
